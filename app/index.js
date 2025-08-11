@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native"; //React Native components
 
+
 export default function App() {
   const [color, setColor] = useState(""); // stores the input value
   //color is a state variable initialized as an empty string "".
+  //holds input text that the user is typing in real-time
   const [bgColor, setBgColor] = useState("white"); // stores the background color
 //bgColor is a state variable initialized as "white".
+ //holds the actual background color to apply on the screen after pressing the button.
+
   
   const changeBackground = () => {  //runs when the button is pressed.
     const trimmedColor = color.trim(); // remove spaces from input and stores it in trimmedColor.
@@ -26,6 +30,7 @@ export default function App() {
         placeholder="Enter color (e.g., Red, blue, #00ff00)"
         value={color}
         onChangeText={setColor} //updates the color state 
+          //calls setColor with the new input value,
       />
 
       <Button title="Change Background" onPress={changeBackground} />
